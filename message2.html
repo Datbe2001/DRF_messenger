@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Test</title>
+</head>
+<body>
+    <h1>Chat Test 2</h1>
+    <label for="recipient">Recipient ID:</label>
+    <input type="text" id="recipient" placeholder="Enter recipient ID">
+    <br>
+    <label for="message">Message:</label>
+    <input type="text" id="message" placeholder="Enter message">
+    <br>
+    <button onclick="sendMessage()">Send Message</button>
+    <br><br>
+    <div id="chat-log"></div>
+
+    <script>
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwNzU5MDA1LCJpYXQiOjE3MjA1NzkwMDUsImp0aSI6IjRmOGViN2NiNjNmNTRjYzBiZGE4MjRjZDA3YWEyMTM1IiwidXNlcl9pZCI6ImIwYjM0ODgzLWE0YjctNDg3Zi05ZWYzLWVjYmIzOGU1OTE5OCJ9.REqYlT6VkQX2F7TLu6riDUhRQWvEepz8DimLxgo_aUs"; // Thay thế "YOUR_JWT_TOKEN" bằng JWT token của bạn
+        const socket = new WebSocket(`ws://localhost:8080/ws/chat/?token=${token}`);
+
+        socket.onopen = function(e) {
+            console.log("Connected to the chat socket");
+        };
+
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log("Received message: ", data);
+            const chatLog = document.getElementById('chat-log');
+            const newMessage = document.createElement('div');
+            newMessage.textContent = `Sender: ${data.sender}, Recipient: ${data.recipient}, Message: ${data.message}`;
+            chatLog.appendChild(newMessage);
+        };
+
+        socket.onclose = function(e) {
+            console.log("Chat socket closed");
+        };
+
+        socket.onerror = function(e) {
+            console.error("Chat socket error: ", e);
+        };
+
+        function sendMessage() {
+            const recipient = document.getElementById('recipient').value;
+            const message = document.getElementById('message').value;
+            if (recipient && message) {
+                socket.send(JSON.stringify({
+                    'recipient': recipient,
+                    'message': message
+                }));
+            } else {
+                alert("Please enter both recipient ID and message");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -144,6 +144,7 @@ DATABASES = {
     }
 }
 AUTH_USER_MODEL = "message.User"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -173,6 +174,15 @@ SWAGGER_SETTINGS = {
     },
     "USE_SESSION_AUTH": False,
     "SCHEMA_PROTOCOLS": ["http", "https"],
+}
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
 }
 
 # Internationalization
