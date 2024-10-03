@@ -18,6 +18,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         else:
             self.user = self.scope['user']
             self.room_group_name = f'chat_{self.user.id}'
+            # self.room_group_name = f'chat'
 
             await self.channel_layer.group_add(
                 self.room_group_name,
@@ -43,26 +44,28 @@ class ChatConsumer(AsyncWebsocketConsumer):
             recipient = await User.objects.filter(id=recipient_id).afirst()
             if recipient:
                 response = {
-                    'sender': str(sender.id),
-                    'recipient': str(recipient_id),
+                    'sender': str(sender),
+                    'recipient': str(recipient),
                     'message': message,
-                    'user_recipient': {
-                        'id': str(recipient.id),
-                        'username': str(recipient.username),
-                        'full_name': str(recipient.full_name),
-                        'email': str(recipient.email),
-                    }
                 }
 
                 print('Websocket consumer connected successfully', response)
 
                 await self.channel_layer.group_send(
                     f"chat_{recipient.id}",
+                    # f"chat",
                     {
                         'type': 'chat_message',
                         'message': response
                     }
                 )
+                # await self.channel_layer.group_send(
+                #     f"chat_{sender.id}",
+                #     {
+                #         'type': 'chat_message',
+                #         'message': response
+                #     }
+                # )
         except Exception as e:
             logger.exception("Unexpected error: %s", e)
 
