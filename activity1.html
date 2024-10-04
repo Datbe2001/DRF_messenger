@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Users</title>
+</head>
+<body>
+    <h1>Active Users</h1>
+    <div id="active-users"></div>
+
+    <script>
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTQ2NjE5LCJpYXQiOjE3Mjc5NjY2MTksImp0aSI6IjRkNjU2MmE5OWRiYTQ3YTBiMWI3ZDY2NWZjNDk3N2RhIiwidXNlcl9pZCI6Ijg4ODUzM2VkLTJkMTItNGNkNC05YWIwLWE3MmU1ZjIxYzUwOCJ9.5BykJnjsB-WArQhiqKcYKGqwfMfi-wgeFRGPmvNxrPg"; // Thay thế "YOUR_JWT_TOKEN" bằng JWT token của bạn
+        const socket = new WebSocket(`ws://localhost:8080/ws/activity/?token=${token}`);
+
+        socket.onopen = function(e) {
+            console.log("Connected to the chat socket");
+        };
+
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log("Received active users: ", data);
+            const activeUsersDiv = document.getElementById('active-users');
+            activeUsersDiv.innerHTML = ''; // Xóa nội dung cũ trước khi cập nhật
+
+            data.online_users.forEach(user => {
+                const userDiv = document.createElement('div');
+                userDiv.textContent = `User ID: ${user}`;
+                activeUsersDiv.appendChild(userDiv);
+            });
+        };
+
+        socket.onclose = function(e) {
+            console.log("Chat socket closed");
+        };
+
+        socket.onerror = function(e) {
+            console.error("Chat socket error: ", e);
+        };
+    </script>
+</body>
+</html>

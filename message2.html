@@ -18,7 +18,7 @@
     <div id="chat-log"></div>
 
     <script>
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwNzU5MDA1LCJpYXQiOjE3MjA1NzkwMDUsImp0aSI6IjRmOGViN2NiNjNmNTRjYzBiZGE4MjRjZDA3YWEyMTM1IiwidXNlcl9pZCI6ImIwYjM0ODgzLWE0YjctNDg3Zi05ZWYzLWVjYmIzOGU1OTE5OCJ9.REqYlT6VkQX2F7TLu6riDUhRQWvEepz8DimLxgo_aUs"; // Thay thế "YOUR_JWT_TOKEN" bằng JWT token của bạn
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTQ2NjYzLCJpYXQiOjE3Mjc5NjY2NjMsImp0aSI6IjI2NWJhYjg1ODIxMjRkNjFhYzE3NWUxOGIyMTVjNDM0IiwidXNlcl9pZCI6ImIwYjM0ODgzLWE0YjctNDg3Zi05ZWYzLWVjYmIzOGU1OTE5OCJ9.x4995v3DCitWAcNWufdyxpg9bfc1KSu6i1dF2InewAU"; // Thay thế "YOUR_JWT_TOKEN" bằng JWT token của bạn
         const socket = new WebSocket(`ws://localhost:8080/ws/chat/?token=${token}`);
 
         socket.onopen = function(e) {

@@ -1,16 +1,19 @@
 import json
 import logging
+
 from django.contrib.auth import get_user_model
+
 from .base_consumer import BaseConsumer
 
 logger = logging.getLogger("__name__")
 User = get_user_model()
 
+
 class ChatConsumer(BaseConsumer):
     room_group_name: str
 
     async def join_group(self):
-        """Thêm người dùng vào group chat"""
+        """add user to group chat"""
         self.room_group_name = f'chat_{self.user.id}'
         await self.channel_layer.group_add(
             self.room_group_name,
@@ -18,7 +21,7 @@ class ChatConsumer(BaseConsumer):
         )
 
     async def receive(self, text_data=None, bytes_data=None):
-        """Hiện thực phương thức nhận dữ liệu từ WebSocket"""
+        """Receive data from WebSocket"""
         try:
             data = json.loads(text_data)
             print("Data received from FE:", data)
@@ -27,7 +30,7 @@ class ChatConsumer(BaseConsumer):
             logger.exception("Error in receive: %s", e)
 
     async def process_message(self, data):
-        """Xử lý tin nhắn chat"""
+        """handle messages chat"""
         message = data['message']
         sender = self.user
         recipient_id = data['recipient']
@@ -49,6 +52,6 @@ class ChatConsumer(BaseConsumer):
             )
 
     async def chat_message(self, event):
-        """Gửi tin nhắn tới WebSocket"""
+        """Send messages to WebSocket"""
         message = event['message']
         await self.send(text_data=json.dumps(message))
