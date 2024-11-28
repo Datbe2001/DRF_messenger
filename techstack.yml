@@ -1,0 +1,198 @@
+repo_name: Datbe2001/DRF_messenger
+report_id: b2e2d2219decc55dc1026cd46ffb22fc
+version: 0.1
+repo_type: Public
+timestamp: '2024-07-17T14:58:31+00:00'
+requested_by: Datbe2001
+provider: github
+branch: develop
+detected_tools_count: 13
+tools:
+- name: Python
+  description: A clear and powerful object-oriented programming language, comparable
+    to Perl, Ruby, Scheme, or Java.
+  website_url: https://www.python.org
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger
+  detection_source: Repo Metadata
+- name: PyPI
+  description: A repository of software for the Python programming language
+  website_url: https://pypi.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Hosted Package Repository
+  image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/pyproject.toml
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: djangorestframework
+  description: Web APIs for Django, made easy
+  package_url: https://pypi.org/project/djangorestframework
+  version: 3.14.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19870/default_d05f6f09935776629f62e8aed365805502c14921.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+  vulnerabilities:
+  - name: Cross-site Scripting in djangorestframework
+    cve_id: CVE-2024-21520
+    cve_url: https://github.com/advisories/GHSA-gw84-84pc-xp82
+    detected_date: Jun 27
+    severity: moderate
+    first_patched: 3.15.2
+- name: djangorestframework-simplejwt
+  description: A minimal JSON Web Token authentication plugin for Django REST Framework
+  package_url: https://pypi.org/project/djangorestframework-simplejwt
+  version: 5.3.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+  vulnerabilities:
+  - name: Improper Privilege Management in djangorestframework-simplejwt
+    cve_id: CVE-2024-22513
+    cve_url: https://github.com/advisories/GHSA-5vcc-86wm-547q
+    detected_date: Mar 19
+    severity: low
+    first_patched:
+- name: channels
+  description: Brings async, event-driven capabilities to Django
+  package_url: https://pypi.org/project/channels
+  version: 4.1.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20360/default_880acfa1f90ccca9f32847b7078d3e07c81e2d48.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: channels-redis
+  description: Redis-backed ASGI channel layer implementation
+  package_url: https://pypi.org/project/channels-redis
+  version: 4.2.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: django-rest-swagger
+  description: Swagger UI for Django REST Framework 3.5+
+  package_url: https://pypi.org/project/django-rest-swagger
+  version: 2.2.0
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20454/default_329fd1b803f7b2c4ba40f8ab8a42cfb1b46975da.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: drf-yasg
+  description: Automated generation of real Swagger/OpenAPI 2.0 schemas from Django
+    Rest Framework code
+  package_url: https://pypi.org/project/drf-yasg
+  version: 1.21.7
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: mongoengine
+  description: MongoEngine is a Python Object-Document Mapper for working with MongoDB
+  package_url: https://pypi.org/project/mongoengine
+  version: 0.28.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20205/default_efffdba05724e2e5174a1a195cbf53e4099f40b6.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: psycopg2-binary
+  description: Psycopg2 - Python-PostgreSQL Database Adapter
+  package_url: https://pypi.org/project/psycopg2-binary
+  version: 2.9.9
+  license: BSD-3-Clause-Attribution
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: python-dotenv
+  description: Add .env support to your django/flask apps in development and deployments
+  package_url: https://pypi.org/project/python-dotenv
+  version: 1.0.1
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20095/default_3141eabecdd8efa55de73a33c43f2ac0d5bbf954.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
+- name: uvicorn
+  description: The lightning-fast ASGI server
+  package_url: https://pypi.org/project/uvicorn
+  version: 0.30.1
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20431/default_f824837db22536768ec317b67275fa384fad7d47.png
+  detection_source_url: https://github.com/Datbe2001/DRF_messenger/blob/develop/poetry.lock
+  detection_source: pyproject.toml
+  last_updated_by: Datbe2001
+  last_updated_on: 2024-07-09 08:27:57.000000000 Z
